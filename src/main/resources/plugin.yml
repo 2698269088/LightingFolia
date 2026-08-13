@@ -1,0 +1,22 @@
+name: LightingFolia
+version: '${project.version}'
+main: top.mcocet.lightingFolia.LightingFolia
+api-version: '1.21'
+folia-supported: true
+author: MCOCET
+description: LightingLuminol的精神续作，目标是在Folia上运行更多Bukkit插件
+
+commands:
+  lightingfolia:
+    description: LightingFolia main command
+    usage: /lightingfolia <reload|status|patch>
+    aliases: [lf, lfolia]
+    permission: lightingfolia.admin
+
+permissions:
+  lightingfolia.admin:
+    default: op
+    description: Access to LightingFolia admin commands
+  lightingfolia.bypass:
+    default: false
+    description: Bypass Folia thread checks (for debugging)

@@ -1,0 +1,90 @@
+# LightingFolia Configuration
+# Universal Folia compatibility bridge for Bukkit plugins
+
+# Enable or disable the plugin
+enabled: true
+
+# Bytecode patching settings
+bytecode-patch:
+  # Enable runtime bytecode modification (requires restart)
+  enabled: true
+  
+  # Plugin-specific patches (plugin name -> patch settings)
+  plugins:
+    # Example: Configure patches for specific plugins
+    # PluginName:
+    #   enabled: true
+    #   entity-operations: true
+    #   scheduler-redirect: true
+    #   world-operations: false
+
+  # Global patch settings
+  global:
+    # Patch entity operations (addPotionEffect, setHealth, teleport, etc.)
+    entity-operations: true
+    
+    # Patch scheduler calls (Bukkit.getScheduler())
+    scheduler-redirect: true
+    
+    # Patch world operations (setBlock, spawnEntity, etc.)
+    world-operations: true
+    
+    # Patch player state operations (setWalkSpeed, setFlying, etc.)
+    player-state: true
+
+# Thread safety settings
+thread-safety:
+  # Auto-dispatch entity operations to correct region thread
+  auto-dispatch-entity: true
+  
+  # Auto-dispatch world operations to correct region thread
+  auto-dispatch-world: true
+  
+  # Cache entity state for non-blocking reads (health, isDead, etc.)
+  cache-entity-state: true
+  
+  # Cache cleanup interval (ticks)
+  cache-cleanup-interval: 6000
+
+# Scheduler settings
+scheduler:
+  # Smart scheduler mode:
+  # - AUTO: Automatically choose scheduler based on context
+  # - FOLIA: Always use Folia schedulers
+  # - BUKKIT: Always use Bukkit scheduler (compatibility mode)
+  mode: AUTO
+  
+  # Allow Bukkit scheduler fallback for unsupported plugins
+  allow-bukkit-fallback: true
+  
+  # Plugins that should always use Bukkit scheduler
+  force-bukkit-scheduler: []
+  
+  # Plugins that should always use Folia schedulers
+  force-folia-scheduler: []
+
+# Debug settings
+debug:
+  # Enable verbose logging
+  verbose: false
+  
+  # Log thread check failures
+  log-thread-failures: true
+  
+  # Log scheduler redirects
+  log-scheduler-redirects: false
+  
+  # Log entity operation dispatches
+  log-entity-dispatches: false
+
+# Compatibility settings
+compatibility:
+  # List of plugins to exclude from patching
+  excluded-plugins:
+    - LightingFolia
+  
+  # Minimum plugin version to patch (leave empty for all)
+  min-version: ""
+  
+  # Maximum plugin version to patch (leave empty for all)
+  max-version: ""
