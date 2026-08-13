@@ -1,0 +1,2 @@
+# LightingFolia
+LightingLuminol的精神续作，目标是在Folia上运行更多Bukkit插件
