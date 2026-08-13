@@ -1,2 +1,7 @@
 # LightingFolia
 LightingLuminol的精神续作，目标是在Folia上运行更多Bukkit插件
+
+原版的LightingLuminol放宽了大量严格的线程安全检查，导致会引发严重的资源竞争问题，可能会引起内存泄露等问题。
+本插件通过ASM，替换bukkit插件的同步任务，并且修改服务端的craftserver来达到兼容bukkit插件的效果。
+
+严重警告：受限于服务端java的安全检查机制，无法直接修改final的数值，所以使用了unsafe，绕过所有检查。此方法会带来完全意想不到的问题，不建议在生产环境使用，仅作为实现参考。
